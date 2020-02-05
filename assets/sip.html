@@ -1,0 +1,27 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <div id="app">
+        <input v-model='ua.username' />
+        <input v-model='ua.secret' />
+        <input v-model='ua.team' />
+        <button v-on:click='setUser()'>Register</button>
+
+        <input v-model='called_number' />
+        <button v-on:click="call(called_number)">Call</button>
+        <button v-if='session != null' v-on:click="endcall()">End</button>
+        <button v-if='waiting_session != null' v-on:click="accept()">accept</button>
+        <video id="remoteVideo"/>
+        <video id="localVideo" muted/>
+
+        <script src="/js/dependencies/sip.js"></script>
+        <script type="text/javascript" src="/js/dependencies/vue.js"></script>
+        <script type="text/javascript" src="/js/dependencies/vue-resource.min.js"></script>
+        <script type="text/javascript" src="/js/sip_test.js"></script>
+    </div>
+</body>
+
+</html>

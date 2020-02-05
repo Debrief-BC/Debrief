@@ -1,0 +1,51 @@
+<html>
+    <header>
+    </header>
+    <body>
+        <div id="app">
+        	Socket Test
+            <div v-if="!currentUser">
+                Username: <input v-model='email' />
+                Password: <input v-model='password' />
+                <button v-on:click='login(email, password)'>Login</button>
+            </div>
+            <div v-if="currentUser">
+                Logged in with pid: {{pid}}
+                <br/>
+                teams: <span v-for='team in currentUser.teams'>{{team.team_name}} </span>
+                <div>
+                    Other Users:
+                    <ul>
+                        <li v-for='user in users'>
+                            {{name(user)}}
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    Chats:
+                    <ul>
+                        <li v-for='chat in chats'>
+                           <a v-on:click='setActiveChat(chat)'>{{chat.name}}</a> <span v-if='chat.unread > 0'>{{chat.unread}} unread messages</span>
+                           <br/>
+                           <span v-for='user in chat.users'>{{name(user)}} </span>
+                        </li>
+                    </ul>
+                </div>
+                <div v-if="activeChat">
+                    <h4>{{activeChat.name}}</h4>
+                    <div v-for="message in activeChat.messages">
+                        <h5>{{name(users[message.from])}} - {{message.type}}</h5>
+                        {{processBody(message.body)}}
+                        <small>{{message.createdAt}}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="/js/dependencies/sails.io.js"></script>
+        <script type="text/javascript" src="/js/dependencies/vue.js"></script>
+        <script type="text/javascript" src="/js/dependencies/vue-resource.min.js"></script>
+        <script type="text/javascript" src="/js/socket_test.js">
+        </script>
+    </body>
+</html>
