@@ -34,7 +34,7 @@
     "include-all": "~0.1.6",
     "jsforce": "^1.7.0",
     "jsonwebtoken": "^5.7.0",
-    "knex": "^0.13.0",
+    "knex": "^0.20.11",
     "libphonenumber-js": "^0.4.52",
     "linkifyjs": "^2.0.5",
     "mandrill-api": "^1.0.45",
