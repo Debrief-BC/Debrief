@@ -11,4 +11,10 @@ module.exports = {
 
     return Validator.respond(response);
   }
+
+   validateEdit: function(req) {
+    var response = {};
+
+    return Validator.respond(response);
+  }
 };
